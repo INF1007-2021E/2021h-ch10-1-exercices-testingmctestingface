@@ -37,11 +37,11 @@ def graphique():
     plt.show()
     return None
 
-def monte_carlo(itt):
+def monte_carlo(itt = 500):
     x = np.random.rand(itt)
     y = np.random.rand(itt)
     r = np.sqrt((x ** 2) + (y ** 2))
-    color = np.where(r<=1,"navy","darkorange")
+    color = np.where(r<=1,"#00aaff","#ffc400")
     plt.scatter(x,y,c=color)
     plt.show()
     ratio = np.count_nonzero(r <= 1)/itt
