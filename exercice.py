@@ -37,12 +37,15 @@ def graphique():
     plt.show()
     return None
 
-def monte_carlo():
-    x = np.random.rand(50000)
-    y = np.random.rand(50000)
-    r = np.sqrt(x**2 + y**2)
-    ratio = np.count_nonzero(r <= 1)/np.count_nonzero(r > 1)
-    return ratio
+def monte_carlo(itt):
+    x = np.random.rand(itt)
+    y = np.random.rand(itt)
+    r = np.sqrt((x ** 2) + (y ** 2))
+    color = np.where(r<=1,"navy","darkorange")
+    plt.scatter(x,y,c=color)
+    plt.show()
+    ratio = np.count_nonzero(r <= 1)/itt
+    return ratio*4
 
 if __name__ == '__main__':
     # TODO: Appelez vos fonctions ici
@@ -50,4 +53,4 @@ if __name__ == '__main__':
     print(coordinate_conversion(np.array([(3,4),(7,1),(29,4)])))
     print(find_closest_index(np.array([5,8,3]),4))
     graphique()"""
-    print(monte_carlo())
+    print(monte_carlo(5000))
